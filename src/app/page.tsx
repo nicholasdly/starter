@@ -1,7 +1,36 @@
-export default function Home() {
+import Link from "next/link";
+import LogoutButton from "@/components/custom/logout-button";
+import { Button } from "@/components/ui/button";
+import { getCurrentSession } from "@/lib/auth/sessions";
+
+export default async function Page() {
+  const { session, user } = await getCurrentSession();
+
   return (
-    <main>
-      <h1>nicholasdly/starter</h1>
-    </main>
+    <div className="mx-auto flex h-svh max-w-md flex-col items-center justify-center p-4">
+      <header className="mb-3">
+        <h1 className="font-semibold">nicholasdly/starter</h1>
+      </header>
+      <main className="flex flex-col items-center gap-4">
+        {session ? (
+          <>
+            <p>You are logged in.</p>
+            <pre className="max-w-96 overflow-x-scroll whitespace-pre rounded border bg-muted px-3 py-2 leading-snug text-muted-foreground">
+              <code className="font-mono text-xs font-medium">
+                {JSON.stringify(user, null, 2)}
+              </code>
+            </pre>
+            <LogoutButton />
+          </>
+        ) : (
+          <>
+            <p>You are not logged in.</p>
+            <Button size="sm" asChild>
+              <Link href="/login">Sign in</Link>
+            </Button>
+          </>
+        )}
+      </main>
+    </div>
   );
 }

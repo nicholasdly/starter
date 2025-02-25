@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
+import { cn } from "@/lib/utils";
 
 export const viewport: Viewport = {
   maximumScale: 1, // Disable auto-zoom on mobile Safari
@@ -29,9 +31,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
+        className={cn(
+          geistSans.variable,
+          geistMono.variable,
+          "font-sans antialiased",
+        )}
       >
         {children}
+        <Toaster theme="light" position="bottom-center" richColors />
       </body>
     </html>
   );
