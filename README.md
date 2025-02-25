@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# next-starter
+
+> A minimal starter kit for Next.js.
+
+Here's the foundation of basically every Next.js project I've ever made, which comes with a considerable amount of boilerplate already written so you can focus on building out your ideas.
+
+## Features
+
+I did my best to include building blocks into this template while keeping things minimal so you can add/or remove things as you desire.
+
+- Next.js 15 (React + TypeScript)
+- Tailwind CSS + shadcn/ui
+- PostgreSQL + Drizzle ORM
+- Self-hosted credentials authentication
+- Type safe environment variables
+- Object validation with Zod
+- Prettier + ESLint
 
 ## Getting Started
 
-First, run the development server:
+There aren't many _mandatory_ prerequisites other than **npm**.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Download, fork, or template this repository.
+2. Download dependencies via `npm i`.
+3. Create and populate a `.env.local` file based off of `.env.example`.
+4. Push the database schema to your database via `npm run db:push`.
+5. Start a local development server via `npm run dev`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+If at any point you want to view/manage the contents of your database, you can do easily through Drizzle Studio via `npm run db:studio`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You should avoid directly modifying your production database. I tend to use PostgreSQL, and it's really easy to [set up locally with Docker](https://orm.drizzle.team/docs/guides/postgresql-local-setup).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Going to Production
 
-## Learn More
+To prevent panic attacks when applying schema changes to your production database, use migrations that are automatically applied via GitHub Actions.
 
-To learn more about Next.js, take a look at the following resources:
+You can generate a migration file via `npm run db:generate`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If at any point you want to delete a migration file, use `npm run db:drop`. **This does not rollback changes to your database, it just safely deletes the SQL migration script.**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+You will want to automate migrations via CI/CD, the easiest being GitHub Actions. Depending on where you deploy your application, there may quite a few moving parts to this—I recommend taking the time to research this yourself.
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Licensed under the [MIT License](LICENSE), Copyright © 2024
