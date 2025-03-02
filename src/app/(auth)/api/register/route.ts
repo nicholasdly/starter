@@ -36,10 +36,12 @@ export async function POST(request: Request) {
     .values({ email, passwordHash })
     .returning();
 
+  if (!user) throw new Error("Failed to create user");
+
   // TODO: Implement 2FA
 
   const sessionToken = generateSessionToken();
-  const session = await createSession(sessionToken, user!.id);
+  const session = await createSession(sessionToken, user.id);
   await setSessionTokenCookie(sessionToken, session.expiresAt);
 
   return new Response(null, { status: 200 });

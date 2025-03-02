@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 
 // Make sure this matches the database session duration.
 const cookieAge = 60 * 60 * 24 * 7; // 7 days in seconds

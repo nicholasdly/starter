@@ -1,8 +1,8 @@
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { toast } from "sonner";
-import { z } from "zod";
-import { loginFormSchema } from "@/lib/auth/schemas";
+import type { z } from "zod";
+import type { loginFormSchema } from "@/lib/auth/schemas";
 import { tc } from "@/lib/utils";
 
 export async function login(values: z.infer<typeof loginFormSchema>) {

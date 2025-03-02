@@ -15,8 +15,8 @@ export default async function Page() {
         {session ? (
           <>
             <p>You are logged in.</p>
-            <pre className="max-w-96 overflow-x-scroll whitespace-pre rounded border bg-muted px-3 py-2 leading-snug text-muted-foreground">
-              <code className="font-mono text-xs font-medium">
+            <pre className="max-w-96 overflow-x-scroll whitespace-pre rounded border bg-muted px-3 py-2 text-muted-foreground leading-snug">
+              <code className="font-medium font-mono text-xs">
                 {JSON.stringify(user, null, 2)}
               </code>
             </pre>

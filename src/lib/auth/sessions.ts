@@ -3,7 +3,7 @@ import { eq, lt } from "drizzle-orm";
 import { cookies } from "next/headers";
 import { cache } from "react";
 import { db } from "@/db";
-import { Session, User, sessions, users } from "@/db/schema";
+import { type Session, type User, sessions, users } from "@/db/schema";
 import { sha256 } from "@oslojs/crypto/sha2";
 import {
   encodeBase32LowerCaseNoPadding,
@@ -36,7 +36,9 @@ export async function createSession(
     .values({ id, userId, expiresAt })
     .returning();
 
-  return session!;
+  if (!session) throw new Error("Failed to create session");
+
+  return session;
 }
 
 export async function validateSessionToken(

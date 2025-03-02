@@ -1,8 +1,8 @@
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { toast } from "sonner";
-import { z } from "zod";
-import { registerFormSchema } from "@/lib/auth/schemas";
+import type { z } from "zod";
+import type { registerFormSchema } from "@/lib/auth/schemas";
 import { tc } from "@/lib/utils";
 
 export async function register(values: z.infer<typeof registerFormSchema>) {

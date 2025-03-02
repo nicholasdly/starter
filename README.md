@@ -14,7 +14,7 @@ I did my best to include building blocks into this template while keeping things
 - Self-hosted credentials authentication
 - Type safe environment variables
 - Object validation with Zod
-- Prettier + ESLint
+- Linting, formatting, and more via Biome
 
 ## Getting Started
 

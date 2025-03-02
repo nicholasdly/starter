@@ -9,6 +9,7 @@ export default defineConfig({
   dialect: "postgresql",
   casing: "snake_case",
   dbCredentials: {
+    // biome-ignore lint/style/noNonNullAssertion: Necessary since we're unable to use type-safe environment variables here.
     url: process.env.DATABASE_URL!,
   },
   verbose: true,
