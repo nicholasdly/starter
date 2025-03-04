@@ -1,15 +1,13 @@
 {
-  "name": "starter",
+  "name": "next-starter",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "tsc --noEmit && biome lint --write --unsafe",
-    "lint:check": "tsc --noEmit && biome lint",
-    "format": "biome format --write",
-    "format:check": "biome format",
+    "lint": "tsc --noEmit && biome check --write --unsafe",
+    "lint:check": "tsc --noEmit && biome check",
     "db:studio": "drizzle-kit studio",
     "db:push": "drizzle-kit push",
     "db:generate": "drizzle-kit generate",

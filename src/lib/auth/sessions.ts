@@ -1,7 +1,4 @@
 import "server-only";
-import { eq, lt } from "drizzle-orm";
-import { cookies } from "next/headers";
-import { cache } from "react";
 import { db } from "@/db";
 import { type Session, type User, sessions, users } from "@/db/schema";
 import { sha256 } from "@oslojs/crypto/sha2";
@@ -9,6 +6,9 @@ import {
   encodeBase32LowerCaseNoPadding,
   encodeHexLowerCase,
 } from "@oslojs/encoding";
+import { eq, lt } from "drizzle-orm";
+import { cookies } from "next/headers";
+import { cache } from "react";
 
 // Make sure this matches the maximum cookie age in the middleware.
 const sessionDuration = 1000 * 60 * 60 * 24 * 7; // 7 days in milliseconds

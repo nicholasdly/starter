@@ -1,7 +1,7 @@
+import { tc } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { toast } from "sonner";
-import { tc } from "@/lib/utils";
 
 async function logout() {
   const [response] = await tc(

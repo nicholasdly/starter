@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { getCurrentSession } from "@/lib/auth/sessions";
+import Link from "next/link";
+import { redirect } from "next/navigation";
 import { RegisterForm } from "./register-form";
 
 export default async function Page() {

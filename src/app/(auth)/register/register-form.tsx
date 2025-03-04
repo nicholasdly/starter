@@ -1,7 +1,5 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import type { z } from "zod";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -15,6 +13,8 @@ import { Input } from "@/components/ui/input";
 import { useRegister } from "@/hooks/use-register";
 import { registerFormSchema } from "@/lib/auth/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import type { z } from "zod";
 
 export function RegisterForm() {
   const { register, isPending } = useRegister();

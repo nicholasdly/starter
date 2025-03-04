@@ -1,9 +1,9 @@
+import type { loginFormSchema } from "@/lib/auth/schemas";
+import { tc } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { toast } from "sonner";
 import type { z } from "zod";
-import type { loginFormSchema } from "@/lib/auth/schemas";
-import { tc } from "@/lib/utils";
 
 export async function login(values: z.infer<typeof loginFormSchema>) {
   const [response] = await tc(

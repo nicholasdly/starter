@@ -1,4 +1,3 @@
-import { eq } from "drizzle-orm";
 import { db } from "@/db";
 import { users } from "@/db/schema";
 import { verifyPassword } from "@/lib/auth/passwords";
@@ -10,6 +9,7 @@ import {
   invalidateExpiredSessions,
   setSessionTokenCookie,
 } from "@/lib/auth/sessions";
+import { eq } from "drizzle-orm";
 
 export async function POST(request: Request) {
   // TODO: Implement rate limiting
